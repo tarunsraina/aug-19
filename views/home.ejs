@@ -1,0 +1,28 @@
+<center><h1><%=locals.title?title:"Members app" %></h1></center>
+
+<h2>Add new member here..</h2>
+
+<form action="/api/members" method="post">
+
+<input type="text" name="id" id="mem-id" placeholder="ID">
+<br>
+<br>
+<input type="text" name="name" id="mem-name" placeholder="name">
+<br>
+<br>
+<input type="text" name="isActive" id="mem-isactive" placeholder="true/false">
+<br>
+<br>
+<input type="submit" value="ADD MEMBER">
+</form>
+<hr>
+<h1><u> Existing members here</u></h1>
+<h4>Member name(ID) -> isActive?</h4>
+<% for(let i=0;i<members.length;i++){ %>
+    <li><%= members[i].name+"("+members[i].id+")" %> ---->
+        <%= members[i].isActive %><br>
+    </li>
+<% } %>
+<br>
+<br>
+<a href="/api/members">visit api here..</a>
